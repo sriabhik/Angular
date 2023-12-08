@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { AddstudentComponent } from './pages/addstudent/addstudent.component';
 import { AddteacherComponent } from './pages/addteacher/addteacher.component';
+import { authInterceptorProviders } from './service/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { AddteacherComponent } from './pages/addteacher/addteacher.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [
+  providers: [authInterceptorProviders,
     provideClientHydration()
   ],
   bootstrap: [AppComponent]

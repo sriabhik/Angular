@@ -18,13 +18,18 @@ studentdata ={
   mobileNumber:'',
   address:'',
   gender:'',
-  role:''
+  user :{
+    id : ''
+  }
 }
 constructor(private studentpost : AdminloginService,private router : Router){}
 
 onSubmit(){
+  
+  this.studentdata.user.id=JSON.parse(localStorage.getItem('id') || '{}');
   this.studentpost.studentmethod(this.studentdata).subscribe((data1:any)=>{
     console.log(data1);
   })
+  this.router.navigateByUrl('/welcome')
 }
 }

@@ -25,9 +25,10 @@ export class AdminloginService {
     return this.http.post("http://localhost:8080/api/admin/postteacher",teacherdata)
   }
 //login user:set token user
-   public loginUser(token: any){
+   public loginUser(token: any,id:any){
     // in this way we store token from retun value from backend
     localStorage.setItem('token',token);
+    localStorage.setItem('id',id)
     return true ;
   }
 
@@ -43,10 +44,15 @@ export class AdminloginService {
 
   //logout:remove token from local stroage
   public logout(){
-    localStorage['remove']('token')
+    localStorage.removeItem('token')
+    localStorage.removeItem('id')
   }
   public getToken(){
     return localStorage.getItem('token');
+
+}
+public getId(){
+  return localStorage.getItem('id')
 }
 
 }

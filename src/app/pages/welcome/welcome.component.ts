@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Init } from 'v8';
+import { AdminloginService } from '../../service/adminlogin.service';
 
 
 
@@ -13,7 +14,7 @@ import { Init } from 'v8';
   
 export class WelcomeComponent implements OnInit{
  userdata : any
-  constructor(  private router: Router) {}
+  constructor(  private router: Router,private login:AdminloginService) {}
   ngOnInit() {
    //get all student 
   }
@@ -26,5 +27,9 @@ export class WelcomeComponent implements OnInit{
   addteacher(){
     this.router.navigateByUrl('/addteacher')
   }
+  logout(){
+    this.login.logout();
+    this.router.navigateByUrl('/login')
+  } 
   }
 
